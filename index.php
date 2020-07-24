@@ -67,7 +67,7 @@ switch ($p) {
     <input type="password" id="pass" name="password" class="form-control" placeholder="Password">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <a href="https://github.com/VedranSagodic/hellopp21/tree/master/app_bootstrap.hr">Link na github kod</a>
+  <a href="https://github.com/VedranSagodic/PropertiesApp_Bootstrap">Link na github kod</a>
 </form>
 
 <script src="bootstrap-4.5.0-dist/js/bootstrap.js"></script>
