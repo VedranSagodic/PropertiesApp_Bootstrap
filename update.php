@@ -97,7 +97,7 @@ $user=$izraz->fetch();
 </form>
 
 
-<script src="assets/js/vendor.js"></script>
-<script src="assets/js/foundation.js"></script>
+<script src="bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+<script src="bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

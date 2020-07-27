@@ -1,9 +1,11 @@
 <?php
+require_once 'config.php';
+
+if(!isset($_SESSION['autoriziran'])){
+  header('location: index.php');
+}
+
 if(isset($_POST['name'])){
-  require_once 'config.php';
-
-  //elog($_POST);
-
   $izraz=$veza->prepare ('insert into users (name, surname, password, e_mail, phone, address) 
   values (:name, :surname, :password, :e_mail, :phone, :address)');
   $izraz->execute($_POST);
@@ -11,8 +13,8 @@ if(isset($_POST['name'])){
 }
 ?>
 <!doctype html>
-<html prefix="og: https://ogp.me/ns#">
 <html class="no-js" lang="en">
+<html prefix="og: https://ogp.me/ns#">
 <head profile="https://polaznik13.edunova.hr/app_bootstrap.hr/new_user.php">
 <link rel="icon" 
       type="image/png" 
@@ -27,8 +29,9 @@ if(isset($_POST['name'])){
     <meta property="og:url" content="https://polaznik13.edunova.hr/app_bootstrap.hr/new_user.php" />
 
     <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/style.css">
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/newUser.css">
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/style.css">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/fav-icon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/fav-icon/apple-icon-60x60.png">
@@ -49,41 +52,40 @@ if(isset($_POST['name'])){
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-
-
 <form method="POST">
 <div class="form-group">
   <h2>Add User</h2>
     <a class="btn btn-primary btn-sm" href="user_page.php">Back to user page</a>
 <div class="form-group">
 <label>Name:</label>
-      <input type="text" id="name" name="name" placeholder="Set user Name">
+      <input type="text" id="name" name="name" placeholder="Name" required>
   </div>
   <div class="form-group">
   <label>Surname:</label>
-      <input type="text" id="surname" name="surname" placeholder=" Set user Surname">
+      <input type="text" name="surname" id="surname" placeholder="Surame" required>
   </div>
   <div class="form-group">
   <label>Password:</label>
-      <input type="text" id="password" name="password"  placeholder="Set user Password">
+      <input type="text" id="password" name="password" placeholder="Password" required>
   </div>
   <div class="form-group">
   <label>E-mail:</label>
-      <input type="e-mail" id="e_mail" name="e_mail"  placeholder="Set user E-mail">
+      <input type="e-mail" id="e_mail" name="e_mail" placeholder="E-mail"vrequired>
   </div>
   <div class="form-group">
   <label>Phone:</label>
-      <input type="number" id="phone" name="phone" placeholder="Set user Phone number">
+      <input type="number" id="phone" name="phone" placeholder="Phone" required>
   </div>
   <div class="form-group">
   <label>Address:</label>
-      <input type="text" id="address" name="address" placeholder="Set user Address">
+       <input type="text" id="address" name="address" placeholder="Address" required>
   </div>
   <button type="submit" class="btn btn-primary btn-lg">Submit</button>
   </div>
 </form>
+</div>
 
-<script src="assets/js/vendor.js"></script>
-<script src="assets/js/foundation.js"></script>
+<script src="bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+<script src="bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
